@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact &amp; Reservations | Bella Vista Trattoria</title>
+  <meta name="description" content="Book a table at Bella Vista Trattoria or get in touch with us. Find our address, phone number, and location map.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <div>
+        <h1>Bella Vista Trattoria</h1>
+        <p class="tagline">Fresh. Family-run. Made from scratch.</p>
+      </div>
+    </div>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html" aria-current="page">Contact &amp; Reservations</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Reserve a Table</h2>
+    <p>Fill out the form below and our team will confirm your reservation by phone or email.</p>
+
+    <form action="#" method="post">
+      <fieldset>
+        <legend>Your Details</legend>
+
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="e.g. Priya Sharma" required>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" pattern="[0-9+ ]{10,15}" required>
+      </fieldset>
+
+      <fieldset>
+        <legend>Reservation Details</legend>
+
+        <label for="date">Date</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="time">Time</label>
+        <input type="time" id="time" name="time" required>
+
+        <label for="guests">Number of Guests</label>
+        <input type="number" id="guests" name="guests" min="1" max="20" value="2" required>
+
+        <label for="occasion">Occasion</label>
+        <select id="occasion" name="occasion">
+          <option value="none">No special occasion</option>
+          <option value="birthday">Birthday</option>
+          <option value="anniversary">Anniversary</option>
+          <option value="business">Business Dinner</option>
+          <option value="other">Other</option>
+        </select>
+
+        <label>Seating Preference</label>
+        <div class="radio-group">
+          <label><input type="radio" name="seating" value="indoor" checked> Indoor</label>
+          <label><input type="radio" name="seating" value="outdoor"> Outdoor</label>
+          <label><input type="radio" name="seating" value="private"> Private Room</label>
+        </div>
+
+        <label for="message">Special Requests</label>
+        <textarea id="message" name="message" rows="4" placeholder="Allergies, seating needs, etc."></textarea>
+      </fieldset>
+
+      <fieldset>
+        <legend>Stay in Touch</legend>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="newsletter" value="yes"> Subscribe to our newsletter</label>
+        </div>
+      </fieldset>
+
+      <button type="submit">Confirm Reservation</button>
+    </form>
+
+    <h2>Find Us</h2>
+    <p>We're located at 24 Garden Street, Sohna, Haryana — free parking available on-site.</p>
+    <iframe class="map-frame"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=77.0%2C28.24%2C77.08%2C28.30&layer=mapnik"
+            title="Map showing the location of Bella Vista Trattoria in Sohna, Haryana"
+            loading="lazy">
+    </iframe>
+  </main>
+
+  <footer>
+    <address>
+      Bella Vista Trattoria · 24 Garden Street, Sohna, Haryana &middot;
+      <a href="tel:+911234567890">+91 12345 67890</a> &middot;
+      <a href="mailto:hello@bellavista.example">hello@bellavista.example</a>
+    </address>
+    <p>&copy; 2026 Bella Vista Trattoria. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

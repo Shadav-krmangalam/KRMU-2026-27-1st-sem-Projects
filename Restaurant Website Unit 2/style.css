@@ -1,0 +1,333 @@
+/* ==================================================================
+   BELLA VISTA TRATTORIA — STYLESHEET (Beginner-friendly version)
+   Kept simple on purpose: plain color values (no variables), basic
+   selectors, and only one pseudo-class (:hover).
+   ================================================================== */
+
+
+/* ------------------------------------------------------------------
+   1. INTRODUCTION TO CSS
+   This file is linked into every HTML page with:
+       <link rel="stylesheet" href="style.css">
+   The * selector below means "every element" — it removes the
+   browser's default spacing so we start from a clean, predictable
+   page before adding our own styles.
+   ------------------------------------------------------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;  /* more on this in the Box Model section */
+}
+
+
+/* ------------------------------------------------------------------
+   2. COLORS & FONTS IN CSS
+   Simple, readable color values and two fonts: one for headings,
+   one for regular text.
+   ------------------------------------------------------------------ */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #2b2321;
+  background-color: #faf3e7;
+}
+
+h1, h2, h3 {
+  font-family: Georgia, 'Times New Roman', serif;
+  color: #6b1f2a;
+}
+
+.tagline {
+  font-style: italic;
+  color: #c98a3b;
+}
+
+
+/* ------------------------------------------------------------------
+   3 & 4. CSS SELECTORS & PROPERTIES (I & II)
+   Just three selector types here, which cover almost everything:
+   - element selector      (e.g. footer)
+   - class selector         (e.g. .card)
+   - id selector            (e.g. #welcome)
+   Plus one pseudo-class, :hover, for interactive links and buttons.
+   ------------------------------------------------------------------ */
+
+/* Element selector — targets every <footer> on the site */
+footer {
+  background-color: #6b1f2a;
+  color: #faf3e7;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+/* Element selector */
+nav a {
+  color: #faf3e7;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Pseudo-class :hover — changes the link color on mouse-over */
+nav a:hover {
+  color: #c98a3b;
+}
+
+/* ID selector (#) — targets the one element with id="welcome" */
+#welcome p {
+  max-width: 700px;
+}
+
+/* Class selector (.) — reusable on any element with class="card" */
+.card {
+  background-color: #ffffff;
+  border: 1px solid #e2d5bd;
+  border-radius: 6px;
+  padding-bottom: 0.6rem;
+}
+
+.card img {
+  width: 100%;
+  height: 160px;
+}
+
+/* Class selector + :hover for the button */
+button {
+  background-color: #6b1f2a;
+  color: #ffffff;
+  border: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #c98a3b;
+}
+
+
+/* ------------------------------------------------------------------
+   5 & 6. CSS POSITIONING & BASIC LAYOUT (I & II)
+   The 5 position values: static (default), relative, absolute,
+   fixed, sticky. Basic layout uses float and display.
+   ------------------------------------------------------------------ */
+
+/* STICKY — the header sticks to the top of the screen once you
+   scroll past it */
+header {
+  position: sticky;
+  top: 0;
+  background-color: #6b1f2a;
+  color: #faf3e7;
+  padding: 1rem 1.5rem;
+}
+
+.brand {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Basic block layout — nav links, one after another */
+nav ul {
+  list-style: none;
+  max-width: 1000px;
+  margin: 0.7rem auto 0;
+}
+
+nav li {
+  display: inline-block;      /* sits links in a row instead of stacked */
+  margin-right: 1.2rem;
+  margin-bottom: 0.4rem;
+}
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;              /* centers the main content box */
+  padding: 1.8rem 1.5rem 4rem;
+}
+
+/* RELATIVE — .hero stays in its normal place, but becomes the
+   "anchor point" for the absolutely positioned box inside it */
+.hero {
+  position: relative;
+}
+
+.hero img {
+  width: 100%;
+  height: 380px;
+}
+
+/* ABSOLUTE — placed exactly where we want it, inside the
+   relatively-positioned .hero above */
+.hero-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: #ffffff;
+  background-color: rgba(43, 35, 33, 0.6);
+  padding: 1.2rem 1rem;
+}
+
+.hero-text h2 {
+  color: #ffffff;
+}
+
+/* FIXED — stays in the same spot on screen even while scrolling,
+   because it is positioned relative to the browser window */
+.book-table-btn {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background-color: #6b1f2a;
+  color: #ffffff;
+  padding: 0.8rem 1.4rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.book-table-btn:hover {
+  background-color: #c98a3b;
+}
+
+/* FLOAT — a simple way to place boxes side by side. Each card
+   floats to the left, so they line up in a row instead of stacking.
+   The card also needs "position: relative" so the badge inside it
+   (below) positions itself against the card, not the whole page. */
+.card-grid {
+  overflow: hidden;   /* keeps the floated cards contained inside */
+  margin: 1.5rem 0;
+}
+
+.card {
+  position: relative;
+  float: left;
+  width: 31%;
+  margin-right: 2%;
+  margin-bottom: 1.5rem;
+}
+
+.card figcaption {
+  padding: 0.6rem 0.8rem;
+  font-size: 0.9rem;
+}
+
+/* ABSOLUTE — the "Chef's Pick" badge sits in the top-right corner
+   of the card above, instead of following normal page flow */
+.badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #c98a3b;
+  color: #ffffff;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+/* Radio/checkbox options in a row, without floats or flexbox */
+.radio-group label, .checkbox-group label {
+  display: inline-block;
+  margin-right: 1.2rem;
+  font-weight: normal;
+}
+
+
+/* ------------------------------------------------------------------
+   7 & 8. BOX MODEL (I & II)
+   Every box is made of: content, then padding, then border, then
+   margin. box-sizing: border-box (set at the top of this file)
+   keeps width/height predictable by including padding and border
+   inside the width you set.
+   ------------------------------------------------------------------ */
+
+h2 {
+  border-bottom: 2px solid #e2d5bd;   /* border */
+  padding-bottom: 0.3rem;             /* padding: space inside the border */
+  margin-bottom: 1rem;                /* margin: space outside the border */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2rem 0 2rem;
+  background-color: #ffffff;
+}
+
+caption {
+  text-align: left;
+  font-weight: bold;
+  color: #6b1f2a;
+  margin-bottom: 0.4rem;
+}
+
+th, td {
+  border: 1px solid #e2d5bd;
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+}
+
+th {
+  background-color: #6b1f2a;
+  color: #faf3e7;
+}
+
+form {
+  background-color: #ffffff;
+  border: 1px solid #e2d5bd;
+  border-radius: 6px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+fieldset {
+  border: 1px solid #e2d5bd;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+legend {
+  font-weight: bold;
+  color: #6b1f2a;
+  padding: 0 0.4rem;
+}
+
+label {
+  display: block;
+  margin-top: 0.8rem;
+  font-weight: bold;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.3rem;
+  border: 1px solid #e2d5bd;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+.map-frame {
+  width: 100%;
+  height: 300px;
+  border: 0;
+  margin-top: 1rem;
+  border-radius: 6px;
+}
+
+footer a {
+  color: #c98a3b;
+}
+
+address {
+  font-style: normal;
+}
+
+
